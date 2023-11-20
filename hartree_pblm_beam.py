@@ -66,10 +66,10 @@ with beam.Pipeline(options=PipelineOptions()) as p:
         | "CustomerData To Tuple" >> beam.Map(parse_file2)
     )
 
-    combined = ({'dataset1': dataset1, 'dataset2': dataset2} 
+    aggregated = ({'dataset1': dataset1, 'dataset2': dataset2} 
             | 'Combine datasets' >> beam.CoGroupByKey()
             | 'Convert Values' >> beam.FlatMap(parse_dataset)
             | 'Grouping Key' >> beam.GroupByKey()
             | 'Calculate Sums' >> beam.Map(calculate_sums)
             | 'Format output' >> beam.Map(convert_to_namedtuple)
-            | 'Final Output' >> beam.io.WriteToText('output.txt'))
+            | 'Final Output' >> beam.io.WriteToText('./data/beam_results', file_name_suffix='.csv'))
