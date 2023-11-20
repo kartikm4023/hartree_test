@@ -1,4 +1,4 @@
-# hartree_test
+# Hartree_test
 
 # Hartree Data Processing Using Pandas and Beam
 
@@ -79,3 +79,9 @@ pip install -r requirements.txt
   ```
 
 - The output will be a CSV file in the `data` directory.
+
+## Note: 
+
+This instruction is under the assumption that you are working on a local machine. Please make the appropriate changes if you are working on a cloud-based system. Ensuring the correct paths and dependencies are in place would guarantee smooth progress.
+
+Please note that the Apache Beam framework setup does not currently include the calculation of final total records. Also, test cases for both the Apache Beam and Pandas frameworks have not been included due to time constraints. However, if you would like to see these features too, I would be happy to write them with some extra time.
