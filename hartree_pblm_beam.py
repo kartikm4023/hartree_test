@@ -86,13 +86,13 @@ with beam.Pipeline(options=PipelineOptions()) as p:
 
     dataset1 = (
         p
-        | "Read OrderData" >> beam.io.ReadFromText('./data/dataset1.csv')
+        | "Read Dataset1" >> beam.io.ReadFromText('./data/dataset1.csv')
         | "OrderData To Tuple" >> beam.Map(lambda x: parse_dataset(x, 'dataset1'))
     )
 
     dataset2 = (
         p
-        | "Read CustomerData" >> beam.io.ReadFromText('./data/dataset2.csv')
+        | "Read Dataset2" >> beam.io.ReadFromText('./data/dataset2.csv')
         | "CustomerData To Tuple" >> beam.Map(lambda x: parse_dataset(x, 'dataset2'))
     )
 
@@ -100,7 +100,7 @@ with beam.Pipeline(options=PipelineOptions()) as p:
         | 'Combine datasets' >> beam.CoGroupByKey())
     
     all_group = (combined_dataset
-        | 'Parse dataset' >> beam.FlatMap(lambda x: preprocess_dataset(x, 'ALL'))
+        | 'Parse all dataset' >> beam.FlatMap(lambda x: preprocess_dataset(x, 'ALL'))
         | 'Grouping Key' >> beam.GroupByKey()
         | 'Calculate aggregates' >> beam.Map(lambda x: calculate_aggs(x, 'ALL'))
         | 'Format output' >> beam.Map(convert_to_namedtuple))
