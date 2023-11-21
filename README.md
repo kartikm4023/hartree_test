@@ -84,4 +84,4 @@ pip install -r requirements.txt
 
 This instruction is under the assumption that you are working on a local machine. Please make the appropriate changes if you are working on a cloud-based system. Ensuring the correct paths and dependencies are in place would guarantee smooth progress.
 
-Please note that the Apache Beam framework setup does not currently include the calculation of final total records. Also, test cases for both the Apache Beam and Pandas frameworks have not been included due to time constraints. However, if you would like to see these features too, I would be happy to write them with some extra time.
+Please note that the tests for both the Apache Beam and Pandas frameworks have not been included due to time constraints. However, if you would like to see them too, I would be happy to write them with some extra time.
